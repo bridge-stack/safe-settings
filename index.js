@@ -17,6 +17,7 @@ module.exports = (robot, { getRouter }, Settings = require('./lib/settings')) =>
       robot.log.debug(`deploymentConfig is ${JSON.stringify(deploymentConfig)}`)
       const configManager = new ConfigManager(context, ref)
       const runtimeConfig = await configManager.loadGlobalSettingsYaml()
+      robot.log.debug(`runtimeConfig is ${JSON.stringify(runtimeConfig)}`)
       const config = Object.assign({}, deploymentConfig, runtimeConfig)
       robot.log.debug(`config for ref ${ref} is ${JSON.stringify(config)}`)
       if (ref) {
